@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  blenheim-server:
+    image: docker.io/pynguins/blenheim-server:latest
+    ports:
+      - 53:53
+      - 8000:8000
