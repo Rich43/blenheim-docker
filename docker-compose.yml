@@ -4,4 +4,4 @@ services:
     image: docker.io/pynguins/blenheim-server:latest
     ports:
       - 53:53
-      - 8000:8000
+      - 7000:8000
