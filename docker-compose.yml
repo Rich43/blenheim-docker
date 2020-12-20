@@ -5,6 +5,9 @@ services:
     ports:
       - 53:53
       - 7000:8000
+    volumes:
+      - blenheim_bind:/etc/bind
+      - blenheim_config:/app/server/config
   blenheim-client:
     image: docker.io/pynguins/blenheim-client:latest
     ports:
