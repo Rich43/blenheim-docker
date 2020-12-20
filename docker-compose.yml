@@ -5,3 +5,13 @@ services:
     ports:
       - 53:53
       - 7000:8000
+  blenheim-client:
+    image: docker.io/pynguins/blenheim-client:latest
+    ports:
+      - 80:80
+    environment:
+      BLENHEIM_SERVER_HOST: blenheim-server
+    links:
+      - blenheim-server
+    depends_on:
+      - blenheim-server
