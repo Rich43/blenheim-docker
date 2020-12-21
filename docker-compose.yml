@@ -18,3 +18,6 @@ services:
       - blenheim-server
     depends_on:
       - blenheim-server
+volumes:
+  blenheim_bind:
+  blenheim_config:
