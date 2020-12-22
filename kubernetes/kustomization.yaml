@@ -1,0 +1,5 @@
+resources:
+  - blenheim-bind-persistentvolumeclaim.yaml
+  - blenheim-config-persistentvolumeclaim.yaml
+  - blenheim-server-service.yaml
+  - blenheim-client-service.yaml
