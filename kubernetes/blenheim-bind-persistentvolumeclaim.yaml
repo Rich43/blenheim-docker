@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
   labels:
     io.kompose.service: blenheim-bind
   name: blenheim-bind
 spec:
-  storageClassName: do-block-storage
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
-status: {}
+      storage: 1Gi
+  storageClassName: do-block-storage
