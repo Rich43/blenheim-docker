@@ -6,6 +6,7 @@ metadata:
     io.kompose.service: blenheim-config
   name: blenheim-config
 spec:
+  storageClassName: do-block-storage
   accessModes:
   - ReadWriteOnce
   resources:

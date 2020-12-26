@@ -6,6 +6,7 @@ metadata:
     io.kompose.service: blenheim-bind
   name: blenheim-bind
 spec:
+  storageClassName: do-block-storage
   accessModes:
   - ReadWriteOnce
   resources:
