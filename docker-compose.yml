@@ -3,8 +3,8 @@ services:
   blenheim-server:
     image: docker.io/pynguins/blenheim-server:latest
     ports:
-      - 53:53
-      - 7000:8000
+      - "53:53"
+      - "7000:8000"
     volumes:
       - blenheim_bind:/etc/bind
       - blenheim_config:/app/server/config
@@ -13,7 +13,7 @@ services:
   blenheim-client:
     image: docker.io/pynguins/blenheim-client:latest
     ports:
-      - 1080:80
+      - "1080:80"
     environment:
       BLENHEIM_SERVER_HOST: blenheim-server
     links:
