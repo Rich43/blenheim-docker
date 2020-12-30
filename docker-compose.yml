@@ -8,16 +8,27 @@ services:
     volumes:
       - blenheim_bind:/etc/bind
       - blenheim_config:/app/server/config
+    networks:
+      - blenheim
   blenheim-client:
     image: docker.io/pynguins/blenheim-client:latest
     ports:
-      - 80:80
+      - 1080:80
     environment:
       BLENHEIM_SERVER_HOST: blenheim-server
     links:
       - blenheim-server
     depends_on:
       - blenheim-server
+    labels:
+      traefik.frontend.rule: Host:blenheim.pynguins.xyz
+      traefik.docker.network: traefik
+    networks:
+      - traefik
+      - blenheim
 volumes:
   blenheim_bind:
   blenheim_config:
+networks:
+  traefik:
+  blenheim:
