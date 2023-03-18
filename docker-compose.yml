@@ -11,6 +11,7 @@ services:
       - blenheim_config:/app/server/config
     networks:
       - blenheim
+    restart: always
   blenheim-client:
     image: docker.io/pynguins/blenheim-client:latest
     ports:
@@ -21,15 +22,11 @@ services:
       - blenheim-server
     depends_on:
       - blenheim-server
-    labels:
-      traefik.frontend.rule: Host:blenheim.pynguins.xyz
-      traefik.docker.network: traefik
     networks:
-      - traefik
       - blenheim
+    restart: always
 volumes:
   blenheim_bind:
   blenheim_config:
 networks:
-  traefik:
   blenheim:
