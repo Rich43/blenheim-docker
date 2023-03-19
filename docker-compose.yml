@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  blenheim-server:
+  blenheim_server:
     image: docker.io/pynguins/blenheim-server:latest
     ports:
       - "7000:8000"
@@ -26,16 +26,14 @@ services:
     networks:
       - blenheim
     restart: always
-  blenheim-client:
+  blenheim_client:
     image: docker.io/pynguins/blenheim-client:latest
     ports:
       - "1080:80"
     environment:
-      BLENHEIM_SERVER_HOST: blenheim-server
-    links:
-      - blenheim-server
+      BLENHEIM_SERVER_HOST: blenheim_server
     depends_on:
-      - blenheim-server
+      - blenheim_server
     networks:
       - blenheim
     restart: always
