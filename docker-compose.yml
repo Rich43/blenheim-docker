@@ -3,12 +3,24 @@ services:
   blenheim-server:
     image: docker.io/pynguins/blenheim-server:latest
     ports:
-      - "53:53"
-      - "53:53/udp"
       - "7000:8000"
     volumes:
       - blenheim_bind:/etc/bind
       - blenheim_config:/app/server/config
+    networks:
+      - blenheim
+    restart: always
+  bind9:
+    name: bind9
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "127.0.0.1:953:953/tcp"
+    volumes:
+      - blenheim_bind:/etc/bind
+      - bind_cache:/var/cache/bind
+      - bind_lib:/var/lib/bind
+      - bind_log:/var/log
     networks:
       - blenheim
     restart: always
@@ -28,5 +40,8 @@ services:
 volumes:
   blenheim_bind:
   blenheim_config:
+  bind_cache:
+  bind_lib:
+  bind_log:
 networks:
   blenheim:
