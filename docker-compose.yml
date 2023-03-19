@@ -13,6 +13,7 @@ services:
     restart: always
   bind9:
     name: bind9
+    image: internetsystemsconsortium/bind9:9.18
     ports:
       - "53:53"
       - "53:53/udp"
